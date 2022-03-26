@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .changeColor {
+      width: 10%;
+      height: 10%;
+      background-color: pink;
+      position: fixed;
+      right: 30px;
+      top: 10px;
+      border-radius: 50%;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pcBox">
+    <ul class="pages">
+      <li class="chat page">
+
+        <!-- <div class="changeColor"></div> -->
+        <div class="chatArea">
+          <ul class="messages"></ul>
+        </div>
+        <input class="inputMessage" placeholder="在这里输入..." />
+      </li>
+      <li class="login page">
+        <div class="form">
+          <h3 class="title">输入聊天昵称</h3>
+          <input class="usernameInput" type="text" maxlength="14" />
+
+        </div>
+      </li>
+  </div>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+  <script>
+    // function isMobile() {
+    //   return window.screen.availWidth < 768;
+    // }
+    // console.log(isMobile());
+
+    var chat = document.querySelector('.chat');
+    var inputMessage = document.querySelector('.inputMessage');
+
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    if (isAndroid) {
+      chat.style.fontSize = '67px';
+      inputMessage.style.height = 6 + '%';
+    }
+    console.log(isAndroid);
+  </script>
+</body>
+
+</html>
